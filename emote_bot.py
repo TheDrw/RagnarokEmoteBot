@@ -130,7 +130,7 @@ async def on_message(message):
     if not user_message:
         return
     if len(user_message) > 10:
-        await message.channel.send('error: keep message less than 10 characters.')
+        return await message.channel.send('error: keep message less than 10 characters.')
 
     # help has highest priority
     if user_message == 'help':
