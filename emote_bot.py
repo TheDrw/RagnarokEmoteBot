@@ -65,7 +65,7 @@ async def send_emoticon(message, user_message):
     # application of https://discordpy.readthedocs.io/en/latest/faq.html#how-do-i-upload-an-image
     async with aiohttp.ClientSession() as session:
         async with session.get(emote) as resp:
-            if resp.status != 10:
+            if resp.status != 200:
                 return await message.channel.send('Could not download file...')
             data = io.BytesIO(await resp.read())
             await message.channel.send(file=discord.File(data, 'rag_emote.gif'))
